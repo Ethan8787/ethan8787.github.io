@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <title>Null Network</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: 'JetBrains Mono', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('yosemite-wallpaper-3840x2160-apple-181.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 20px 40px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #fff
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px 30px;
+      border-radius: 16px;
+      max-width: 800px;
+      width: 90%
+    }
+
+    .card p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #eee;
+      line-height: 1.8
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .btn {
+      text-decoration: none;
+      color: #000;
+      background-color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all .2s ease
+    }
+
+    .btn:hover {
+      background-color: #000;
+      color: #fff
+    }
+
+    .tooltip {
+      position: relative;
+      cursor: help
+    }
+
+    .tooltip::after {
+      content: "Minecraft Server\A null.ddns.net (1.8.9 - 1.21.8)\A FFA | FastBuilder | SMP";
+      white-space: pre-line;
+      text-align: center;
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.9);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+
+      min-width: 300px;
+      max-width: 300px;
+    }
+
+
+    .tooltip:hover::after {
+      opacity: 1
+    }
+
+    #typewriter {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 2.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid white;
+      width: fit-content;
+      animation: blink-caret .7s step-end infinite;
+      margin: 0 auto
+    }
+
+    @keyframes blink-caret {
+      from, to {
+        border-color: transparent
+      }
+      50% {
+        border-color: white
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Null Network</h1>
+</header>
+<div class="container">
+  <div class="card">
+    <h1 id="typewriter"></h1>
+    <p>
+      I'm Ethan — a 14y coder from Taiwan.<br>
+      Owner & Lead Developer of
+      <span class="tooltip"><strong>Null Network</strong></span>.<br>
+      Feel free to click the button below to view my social media!
+    </p>
+    <div class="button-group">
+      <a class="btn" href="https://discord.gg/AyucpYarpa" target="_blank">Discord</a>
+      <a class="btn" href="https://www.youtube.com/channel/UCDiFgkr0I6uAgRlBBPnflNw" target="_blank">YouTube</a>
+      <a class="btn" href="https://www.instagram.com/ethan_tw_/" target="_blank">Instagram</a>
+      <a class="btn" href="https://github.com/Ethan8787/" target="_blank">GitHub</a>
+    </div>
+  </div>
+</div>
+<script>
+  const text = "Who am I?";
+  const target = document.getElementById("typewriter");
+  let i = 0, typing = true;
+
+  function type() {
+    if (typing) {
+      if (i < text.length) {
+        target.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 120);
+      } else {
+        typing = false;
+        setTimeout(type, 5000);
+      }
+    } else {
+      if (i > 0) {
+        target.textContent = text.substring(0, i - 1);
+        i--;
+        setTimeout(type, 60);
+      } else {
+        typing = true;
+        setTimeout(type, 500);
+      }
+    }
+  }
+  type();
+</script>
+</body>
+</html>
